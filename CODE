@@ -1,0 +1,27 @@
+ def lengthOfLongestSubstring(self, s):
+        p=0
+        j=1
+        a=[]
+        for i in s:
+            p+=1
+        for i in s:
+            q=1
+            l=[]
+            l.append(i)
+            d=j
+            while(d<p and (s[d] not in l)):
+                
+                q+=1
+                l.append(s[d])
+                d+=1
+                
+                
+            a.append(q)
+            j+=1
+        for i in range(p-1):
+            for j in range(i+1,p):
+                if(a[i]>a[j]):
+                    temp=a[i]
+                    a[i]=a[j]
+                    a[j]=temp
+        return a[p-1]
